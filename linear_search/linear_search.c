@@ -1,28 +1,19 @@
 #include <stdio.h>
-int binary(int a[100],int key,int n){
-int mid, low=0 ,high=n-1;
-mid=(low+high)/2;
+int linear(int a[100],int key,int n){
+int i;
+for ( i = 0; i < n; i++)
+{
+    if (key==a[i])
+{
+   return i;
+}
+}
 
-while (low<=high)
-{
-    if (key==a[mid])
-{
-   return mid;
-}
-if (key>a[mid])
-{
-   return mid=high-1;
-}
-if (key<a[mid])
-{
-   return mid=low+1;
-}
 return -1;
 }
 
 
 
-}
 void main()
 {
     int a[100], n, key, pos, i;
@@ -35,7 +26,7 @@ void main()
     }
     printf("enter the elements to search in the array ");
     scanf("%d", &key);
-    pos = binary(a, key,n);
+    pos = linear(a, key,n);
     if(pos==-1){
     printf("elements not found");
     }else{
